@@ -5,7 +5,6 @@ package david_liga_basket_01.Controllers;
  */
 
 import david_liga_basket_01.Model.Jugador;
-import david_liga_basket_01.Repository.EquipoRepository;
 import david_liga_basket_01.Repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +28,8 @@ public class  JugadorControllers {
     @Autowired
     private JugadorRepository jugadorRepository;
 
-    @Autowired
-    private EquipoRepository equipoRepository;
+    //@Autowired
+    //private EquipoRepository equipoRepository;
 
     @RequestMapping(method = POST)
     @ResponseStatus(HttpStatus.CREATED)
@@ -39,7 +38,7 @@ public class  JugadorControllers {
 
     @RequestMapping(method = GET)
     public List<Jugador> findAll() {
-        List<Jugador> jugadors = new ArrayList<Jugador>();
+        List<Jugador> jugadors = new ArrayList<>();
         Iterator<Jugador> iterator = jugadorRepository.findAll().iterator();
 
         while (iterator.hasNext()) {
@@ -47,6 +46,7 @@ public class  JugadorControllers {
         }
         //@RequestMapping
         return jugadors;
+
     }
 
     /*@RequestMapping(value = "/{idJugador}/equipos/{idEquipo}", method = POST)

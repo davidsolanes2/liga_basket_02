@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    table, th, td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+        backgroud-color: rgb(0, 102, 204);
+    }
+    table tr:nth-child(even) {
+        background-color: rgb(255, 255, 51);
+    }
+</style>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <head>
     <meta charset="UTF-8">
@@ -7,11 +20,12 @@
 </head>
 <body>
 <div ng-app="MyApp" ng-controller="JugadorCtrl">
-    <ul>
-        <li ng-repeat=" x in myData">
-            {{ x.nombreJugador + ', ' + x.posicion}}
-        </li>
-    </ul>
+    <table>
+        <tr ng-repeat="x in myData">
+            <td>{{x.nombreJugador}}</td>
+            <td>{{x.posicion}}</td>
+        </tr>
+    </table>
 </div>
 <script>
     var app = angular.module("MyApp", []);
@@ -24,4 +38,4 @@
 </body>
 </html>
 
-<!-- localhost:8080/AngularJS_07.html -->
+<!-- localhost:8080/AngularJS_10.html -->
